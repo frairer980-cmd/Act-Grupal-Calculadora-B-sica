@@ -1,0 +1,18 @@
+# test_calculator.py  
+import pytest  
+from calculator import add, subtract, multiply, divide, sqrt_approx, exp_approx  
+
+def test_add():  
+    assert add(3, 2) == 5  # Caso positivo  
+    assert add(-1, -1) == -2  # Caso negativo  
+
+def test_divide():  
+    assert divide(10, 2) == 5.0  
+    with pytest.raises(ValueError):  # Prueba de error  
+        divide(5, 0)  
+
+def test_sqrt_approx():  
+    assert 1.414 <= sqrt_approx(2) <= 1.415  # √2 ≈ 1.414  
+
+def test_exp_approx():  
+    assert 2.718 <= exp_approx(1) <= 2.719  # e^1 ≈ 2.718  
